@@ -1,6 +1,6 @@
 <html>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<body background="images/2.png" style="background-repeat:no-repeat;
+<body background="images/2.jpg" style="background-repeat:no-repeat;
 background-size: 100% 100%">
 <br><br><br><br>
 <div class="container">
