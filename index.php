@@ -40,7 +40,7 @@ $conn->close();
     <title>Insert Name and Email</title>
 </head>
 <body>
-    <h2>Insert Name and Email</h2>
+    <h2>Insert Name and Email !!!!!!!!!</h2>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         Name: <input type="text" name="name" required><br><br>
         Email: <input type="email" name="email" required><br><br>
