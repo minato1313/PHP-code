@@ -1,9 +1,9 @@
 <?php
 // Database connection
-$servername = "your-rds-endpoint";
-$username = "your-username";
-$password = "your-password";
-$dbname = "mydatabase";
+$servername = "database-1.cdc2mykiwzex.us-east-2.rds.amazonaws.com";
+$username = "admin";
+$password = "admin123";
+$dbname = "db";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
