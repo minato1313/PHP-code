@@ -4,9 +4,6 @@ on:
   push:
     branches: ["main"]
 
-  pull_request:
-    branches: ["main"]
-
   workflow_dispatch:
 
 jobs:
@@ -14,10 +11,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Generate Docker image tag
+        run: echo "IMAGE_TAG=$(date +%s)" >> "$GITHUB_ENV"
 
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag lonewolf1313/php-code:$(date +%s)
+        run: docker build . --file Dockerfile --tag lonewolf1313/php-code:$IMAGE_TAG
 
       - name: Push the Docker image to Docker Hub
-        run: docker push lonewolf1313/php-code:$(date +%s)
+        run: docker push lonewolf1313/php-code:$IMAGE_TAG
+
+      - name: Logout from Docker Hub
+        if: always()
+        run: docker logout
